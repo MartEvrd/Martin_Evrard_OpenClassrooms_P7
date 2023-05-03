@@ -16,7 +16,9 @@ const resetStyle = createGlobalStyle`
       list-style:none
   }
   button,input,select{
-      margin:0
+      margin:0;
+      border: none;
+      background: none;
   }
   html{
       box-sizing:border-box

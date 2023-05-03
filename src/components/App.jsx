@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import ResetStyle from '../styles/resetStyle';
 import GlobalStyle from '../styles/globalStyle';
@@ -12,19 +11,18 @@ import NotFound from './NotFound/NotFound'
 
 function App() {
   return (
-    <Fragment>
+    <>
       <ResetStyle/>
       <GlobalStyle/>
+      <Header />
       <Routes>
-        <Route element={<Header />}>
-          <Route path='/about' element={<About />}/>
-        </Route>
+        <Route path='/about' element={<About />}/>
         <Route path='/' element={<Home />} />
         <Route path='/housing:id' element={<Housing />} />
-        <Route element={<Footer />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
-    </Fragment>
+      <Footer />
+    </>
   );
 }
 

@@ -4,6 +4,12 @@ const size = {
     laptop: '1025px',
 }
 
+const bordersPadding = {
+    mobile: '20px',
+    tablet: '20px',
+    laptop: '100px',
+}
+
 const styleParams = {
     color: {
         primary: '#FF6060',
@@ -25,9 +31,17 @@ const styleParams = {
         tablet: `screen and (min-width: ${size.tablet})`,
         laptop: `screen and (min-width: ${size.laptop})`,
     },
-    font: {
-        standard: `font`
-    }
+    borderPadding: {
+        mobile: `0px ${bordersPadding.mobile}`,
+        tablet: `0px ${bordersPadding.tablet}`,
+        laptop: `0px ${bordersPadding.laptop}`,
+    },
+    headerHeight: {
+        mobile: '70px',
+        tablet: '70px',
+        laptop: '110px',
+    },
+    footerHeight: '210px',
 }
 
 export default styleParams
