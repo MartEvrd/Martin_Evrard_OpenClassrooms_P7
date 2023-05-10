@@ -22,7 +22,6 @@ const styleParams = {
         bgStandard: '#FFF',
         bgFooter: '#000',
 
-        cardsBorder: '#70D5AB',
         emptyStars: '#E3E3E3',
         profilePic: '#C4C4C4'
     },

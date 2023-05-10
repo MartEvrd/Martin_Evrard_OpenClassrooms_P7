@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import styleParams from "../../styles/styleParams";
-import Cover from '../../assets/about-pic.jpg'
+import cover from '../../assets/about-pic.jpg'
 import about from '../../datas/about.json'
 import Collapse from "../Collapse";
+import Banner from "../Banner";
 
 const AboutContainer = styled.main`
     margin: 0 auto;
@@ -18,19 +19,10 @@ const AboutContainer = styled.main`
         padding-top: 50px;
     }
 `
-const AboutCover = styled.img`
-    height: 225px;
-    padding-bottom: 20px;
-    border-radius: 10px;
-    width: 100%;
-    filter: brightness(70%);
-    object-fit: cover;
-`
-
 function About() {
-    return ( 
+    return (
         <AboutContainer>
-            <AboutCover src={Cover} alt="Country and landscapes" />
+            <Banner img={cover} />
             {about.map(({title, description}, index) =>
                 <Collapse key={`${title}-${index}`} title={title} description={description}/>
             )}

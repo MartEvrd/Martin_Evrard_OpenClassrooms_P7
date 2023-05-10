@@ -41,7 +41,7 @@ const Home = styled(Link)`
     font-weight: 500;
     font-size: 1.4rem;
     margin: 0px auto;
-    padding-bottom: 150px;
+    padding: 70px 0px;
     @media ${styleParams.device.laptop} {
             font-size: 1.8rem;
         }

@@ -4,7 +4,7 @@ import Arrow from '../assets/arrow-down.svg'
 import { useState } from "react";
 
 const CollapseContainer = styled.div`
-    width: 100%;
+    max-width: 1024px;
     padding-bottom: 15px;
 `
 const TitleContainer = styled.div`
@@ -57,7 +57,7 @@ const TextContainer = styled.div`
     transition: max-height 0.5s ease-in-out;
     ${(props) => props.isOpen && css`
         height: auto;
-        max-height: 200px;
+        max-height: 250px;
     `};
     p {
         padding: 30px 15px 15px;
@@ -71,27 +71,17 @@ function Collapse({ title, description }) {
 
     const [isOpen, setIsOpen] = useState(false)
 
-    return isOpen ? ( 
+    return ( 
         <CollapseContainer>
             <TitleContainer>
                 <span>{title}</span>
-                <ArrowBtn src={Arrow} alt="arrow down" isOpen={isOpen} onClick={() => setIsOpen(false)}/>
+                <ArrowBtn src={Arrow} alt="arrow down" isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}/>
             </TitleContainer>
             <TextContainer isOpen={isOpen}>
                 <p>{description}</p>
             </TextContainer>
         </CollapseContainer>
-    ):(
-        <CollapseContainer>
-            <TitleContainer>
-                <span>{title}</span>
-                <ArrowBtn src={Arrow} alt="arrow down" onClick={() => setIsOpen(true)}/>
-            </TitleContainer>
-            <TextContainer isOpen={isOpen}>
-                <p>{description}</p>
-            </TextContainer>
-        </CollapseContainer>
-    );
+    )
 }
-
+// Utiliser typeOf pour tester si on récupère un tableau ou une chaîne de charactère, pour adapter en transformant le tableau en liste
 export default Collapse;
