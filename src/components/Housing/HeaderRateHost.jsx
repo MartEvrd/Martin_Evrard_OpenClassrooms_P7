@@ -3,6 +3,7 @@ import styleParams from "../../styles/styleParams";
 import Star from "./Star";
 
 const RateHostContainer = styled.div`
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -10,6 +11,7 @@ const RateHostContainer = styled.div`
         flex-direction: column-reverse;
         align-items: flex-end;
         row-gap: 25px;
+        width: auto;
     } 
 `
 const StarContainer = styled.div`
