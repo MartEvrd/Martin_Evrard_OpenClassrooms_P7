@@ -29,6 +29,10 @@ const CoverText = styled.div`
     display: flex;
     justify-content: start;
     align-items: center;
+    @media ${styleParams.device.tablet} {
+        justify-content: center;
+        text-align: center;
+    }
     @media ${styleParams.device.laptop} {
         font-size: 4.8rem;
         justify-content: center;

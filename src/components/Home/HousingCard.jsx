@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import styleParams from "../styles/styleParams";
+import styleParams from "../../styles/styleParams";
 import { Link } from "react-router-dom";
 
 const Card = styled(Link)`
@@ -9,6 +9,10 @@ const Card = styled(Link)`
     border-radius: 10px;
     background-size: cover;
     background-image: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 100%), url(${props => props.img});
+    @media ${styleParams.device.tablet} {
+        max-width: 290px;
+        height: 290px;
+    }
     @media ${styleParams.device.laptop} {
         max-width: 340px;
         height: 340px;
@@ -27,6 +31,7 @@ const CardTxt = styled.div`
     display: flex;
     justify-content: start;
     align-items: end;
+    line-height: 25px;
     color: ${styleParams.color.fontSecondary};
 `
 function HousingCard({ img, title, id }) {

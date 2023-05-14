@@ -4,8 +4,11 @@ import Arrow from '../assets/arrow-down.svg'
 import { useState } from "react";
 
 const CollapseContainer = styled.div`
-    max-width: 1024px;
+    width: 100%;
     padding-bottom: 15px;
+    @media ${styleParams.device.laptop} {
+        max-width: 1024px;
+    }
 `
 const TitleContainer = styled.div`
     width: 100%;

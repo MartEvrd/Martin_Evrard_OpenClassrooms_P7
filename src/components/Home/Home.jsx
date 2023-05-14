@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import styleParams from "../../styles/styleParams";
 import Banner from '../Banner';
-import HousingCard from "../HousingCard";
+import HousingCard from "./HousingCard";
 import cover from '../../assets/home-pic.jpg'
 import housings from '../../datas/housings.json'
 
@@ -27,6 +27,16 @@ const HomeList = styled.div`
     display: flex;
     flex-direction: column;
     row-gap: 20px;
+    @media ${styleParams.device.tablet} {
+        background-color: ${styleParams.color.secondary};
+        padding: 55px 50px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        column-gap: 60px;
+        row-gap: 50px;
+    }
     @media ${styleParams.device.laptop} {
         background-color: ${styleParams.color.secondary};
         padding: 55px 50px;
@@ -44,10 +54,10 @@ function Home() {
         <HomeContainer>
             <Banner img={cover} text="Chez vous, partout et ailleurs" />
             <HomeList>
-                {housings.map(({id, title, pictures}) =>
+                {housings.map(({id, title, cover}) =>
                     <HousingCard
                         key={id}
-                        img={pictures[0]}
+                        img={cover}
                         title={title}
                         id={id}
                     />
