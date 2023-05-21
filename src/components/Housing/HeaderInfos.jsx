@@ -2,6 +2,7 @@ import styled from "styled-components";
 import styleParams from "../../styles/styleParams";
 
 const HeaderInfosContainer = styled.div`
+    margin-bottom: 15px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -32,7 +33,6 @@ const HousingLocation = styled.p`
 `
 const HousingTagsContainer = styled.div`
     width: 100%;
-    padding-bottom: 16px;
     display: flex;
     justify-content: flex-start;
     align-items: center;

@@ -21,6 +21,7 @@ const TitleContainer = styled.div`
     position: relative;
     @media ${styleParams.device.laptop} {
         height: 50px;
+        border-radius: 10px;
     }
     span {
         padding-left: 12px;
@@ -28,7 +29,8 @@ const TitleContainer = styled.div`
         font-weight: 500;
         font-size: 1.3rem;
         @media ${styleParams.device.laptop} {
-            font-size: 2.4rem;
+            font-size: 1.8rem;
+            padding-left: 20px;
         }
     }
 `
@@ -55,6 +57,7 @@ const TextContainer = styled.div`
     background-color: ${styleParams.color.secondary};
     border-radius: 5px;
     font-size: 1.2rem;
+    line-height: 18px;
     overflow: hidden;
     max-height: 0px;
     transition: max-height 0.5s ease-in-out;
@@ -65,15 +68,23 @@ const TextContainer = styled.div`
     p {
         padding: 30px 15px 15px;
     }
+    ul {
+        padding: 30px 15px 15px;
+        line-height: 20px;
+        @media ${styleParams.device.laptop} {
+            line-height: 35px
+        }
+    }
     @media ${styleParams.device.laptop} {
-        font-size: 2.4rem;
+        font-size: 1.8rem;
+        border-radius: 10px;
+        line-height: 25px;
     }
 `
 
 function Collapse({ title, description }) {
 
     const [isOpen, setIsOpen] = useState(false)
-
     return ( 
         <CollapseContainer>
             <TitleContainer>
@@ -81,10 +92,18 @@ function Collapse({ title, description }) {
                 <ArrowBtn src={Arrow} alt="arrow down" isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}/>
             </TitleContainer>
             <TextContainer isOpen={isOpen}>
-                <p>{description}</p>
+                {Array.isArray(description) ? (
+                    <ul>
+                        {description.map((equipment,index) =>
+                            <li key={index}>{equipment}</li>
+                        )}
+                    </ul>
+                ):(
+                    <p>{description}</p>
+                )}
+                
             </TextContainer>
         </CollapseContainer>
     )
 }
-// Utiliser typeOf pour tester si on récupère un tableau ou une chaîne de charactère, pour adapter en transformant le tableau en liste
 export default Collapse;

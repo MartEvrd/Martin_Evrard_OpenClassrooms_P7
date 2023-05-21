@@ -51,10 +51,13 @@ function HeaderRateHost({ rating, hostName, hostPic }) {
         <RateHostContainer>
             <StarContainer>
                 {rating === 5 ? (
-                    [...Array(rating)].map((_, index) => <Star type="full" key={index} />)
+                    [...Array(rating)].map((_, index) =>
+                        <Star type="full" key={index} />)
                 ) : (
-                    [...Array(rating)].map((_, index) => <Star type="full" key={`full-${index}`} />)
-                    .concat([...Array(5-rating)].map((_, index) => <Star type="empty" key={`empty-${index}`} />))
+                    [...Array(rating)].map((_, index) =>
+                        <Star type="full" key={`full-${index}`} />)
+                    .concat([...Array(5-rating)].map((_, index) =>
+                        <Star type="empty" key={`empty-${index}`} />))
                 )}
             </StarContainer>
             <HostContainer>
