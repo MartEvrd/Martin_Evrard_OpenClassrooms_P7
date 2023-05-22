@@ -162,7 +162,6 @@ function Gallery({ pictures }) {
             ) : (
                 <GalleryContainer>
                     <HousingPictures src={pictures[0]} />
-                    {/* <img src={pictures[0]} alt="flat pic" /> */}
                 </GalleryContainer>
             )}
         </>

@@ -40,6 +40,10 @@ const CollapsesContainer = styled.div`
     flex-direction: column;
     justify-content: space-between;
     margin-bottom: 20px;
+    @media ${styleParams.device.tablet} {
+        flex-direction: row;
+        column-gap: 20px;
+    }
     @media ${styleParams.device.laptop} {
         flex-direction: row;
         column-gap: 75px;

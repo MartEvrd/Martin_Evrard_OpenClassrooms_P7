@@ -34,8 +34,8 @@ const HomeList = styled.div`
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
-        column-gap: 60px;
-        row-gap: 50px;
+        column-gap: 30px;
+        row-gap: 40px;
     }
     @media ${styleParams.device.laptop} {
         background-color: ${styleParams.color.secondary};
