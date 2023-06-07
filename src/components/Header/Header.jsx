@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import styleParams from "../../styles/styleParams";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Logo from '../../assets/kasa-logo.svg'
 
 const NavbarContainer = styled.header`
@@ -43,18 +43,34 @@ const NavbarLink = styled(Link)`
     &:hover{
         text-decoration: underline;
     }
+
+`
+
+const ActiveLink  = styled.span`
+    text-decoration: underline;
 `
 
 function Header() {
+
+    let location = useLocation();
+    console.log(location.pathname);
     return ( 
         <NavbarContainer>
             <img src={Logo} alt="Logo kasa standard" />
             <NavbarLinkContainer>
                 <NavbarLink to="/">
-                    ACCUEIL
+                    {location.pathname === "/" ? (
+                        <ActiveLink>ACCUEIL</ActiveLink>
+                    ) : (
+                        <span>ACCUEIL</span>
+                    )}
                 </NavbarLink>
                 <NavbarLink to="/about">
-                    A PROPOS
+                    {location.pathname === "/about" ? (
+                        <ActiveLink>A PROPOS</ActiveLink>
+                    ) : (
+                        <span>A PROPOS</span>
+                    )}
                 </NavbarLink>
             </NavbarLinkContainer>
         </NavbarContainer>
