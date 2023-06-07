@@ -6,6 +6,7 @@ import HeaderInfos from "./HeaderInfos";
 import HeaderRateHost from './HeaderRateHost'
 import Collapse from '../Collapse'
 import Gallery from "./Gallery";
+import NotFound from "../NotFound/NotFound"
 
 const HousingContainer = styled.main`
     margin: 0 auto;
@@ -57,26 +58,30 @@ function Housing() {
         (house) => house.id === id
     )
     return (
-            <HousingContainer>
-               <Gallery pictures={houseDatas.pictures} />
-                <HeaderContainer>
-                    <HeaderInfos
-                        title={houseDatas.title}
-                        location={houseDatas.location}
-                        tags={houseDatas.tags}
-                    />
-                    <HeaderRateHost 
-                        rating={Number(houseDatas.rating)}
-                        hostName={houseDatas.host.name}
-                        hostPic={houseDatas.host.picture}
-                    />
-                </HeaderContainer>
-                <CollapsesContainer>
-                    <Collapse title='Description' description={houseDatas.description}/>
-                    <Collapse title='Équipements' description={houseDatas.equipments}/>
-                </CollapsesContainer>
-            
-            </HousingContainer>
+            houseDatas ? (
+                <HousingContainer>
+                <Gallery pictures={houseDatas.pictures} />
+                    <HeaderContainer>
+                        <HeaderInfos
+                            title={houseDatas.title}
+                            location={houseDatas.location}
+                            tags={houseDatas.tags}
+                        />
+                        <HeaderRateHost 
+                            rating={Number(houseDatas.rating)}
+                            hostName={houseDatas.host.name}
+                            hostPic={houseDatas.host.picture}
+                        />
+                    </HeaderContainer>
+                    <CollapsesContainer>
+                        <Collapse title='Description' description={houseDatas.description}/>
+                        <Collapse title='Équipements' description={houseDatas.equipments}/>
+                    </CollapsesContainer>
+                
+                </HousingContainer>
+            ) : (
+                <NotFound />
+            )
     );
 }
 
